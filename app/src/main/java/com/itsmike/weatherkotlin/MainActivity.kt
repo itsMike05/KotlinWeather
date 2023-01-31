@@ -35,8 +35,8 @@ fun WeatherPage() {
             .fillMaxWidth()
             .padding(
                 top = 30.dp,
-                start = 30.dp,
-                end = 30.dp
+                start = 15.dp,
+                end = 15.dp
             ),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -46,7 +46,7 @@ fun WeatherPage() {
     }
 }
 
-@Preview (showBackground = true)
+@Preview (showBackground = true, widthDp = 390, heightDp = 800)
 @Composable
 fun AppPreview() {
     WeatherKotlinTheme{
