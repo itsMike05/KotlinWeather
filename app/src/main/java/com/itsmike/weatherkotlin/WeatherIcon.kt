@@ -15,10 +15,9 @@ fun WeatherIcon() {
         painter = painterResource(id = R.drawable.ic_logo),
         contentDescription = "App Logo",
         modifier = Modifier
-            .width(150.dp)
+            .width(250.dp)
     )
 }
-
 
 @Preview (showBackground = true)
 @Composable
