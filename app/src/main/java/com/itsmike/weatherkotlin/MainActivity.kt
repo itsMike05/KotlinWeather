@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             WeatherKotlinTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                    // WeatherPage()
+                    WeatherPage()
                 }
             }
         }
@@ -46,9 +46,11 @@ fun WeatherPage() {
     }
 }
 
-// PIXEL XL PREVIEW DIMENSIONS
-@Preview (showBackground = true, widthDp = 390, heightDp = 800)
+@Preview (showBackground = true)
 @Composable
 fun AppPreview() {
-    WeatherPage()
+    WeatherKotlinTheme{
+        WeatherPage()
+    }
+
 }
