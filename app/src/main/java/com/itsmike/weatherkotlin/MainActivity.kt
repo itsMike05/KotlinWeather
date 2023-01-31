@@ -9,6 +9,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.itsmike.weatherkotlin.ui.theme.WeatherKotlinTheme
 
@@ -17,8 +18,29 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             WeatherKotlinTheme {
-
+                Surface(color = MaterialTheme.colors.background) {
+                    WeatherPage()
+                }
             }
         }
+    }
+}
+
+
+@Composable
+fun WeatherPage() {
+
+    WeatherIcon()
+
+}
+
+
+
+// PIXEL XL PREVIEW DIMENSIONS
+@Preview (showBackground = true, widthDp = 412, heightDp = 712)
+@Composable
+fun AppPreview() {
+    WeatherKotlinTheme() {
+        WeatherPage()
     }
 }
