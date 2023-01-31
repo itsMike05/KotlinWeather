@@ -15,7 +15,7 @@ fun WeatherIcon() {
         painter = painterResource(id = R.drawable.ic_logo),
         contentDescription = "App Logo",
         modifier = Modifier
-            .width(200.dp)
+            .width(150.dp)
     )
 }
 
