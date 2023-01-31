@@ -20,6 +20,8 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.itsmike.weatherkotlin.ui.theme.WeatherKotlinTheme
+import org.json.JSONObject
+import java.net.URL
 
 class MainActivity : ComponentActivity() {
 
@@ -45,20 +47,26 @@ class MainActivity : ComponentActivity() {
     fun CallTheApi(){
 
         val url = "https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${API_KEY}"
-        val queue = Volley.newRequestQueue(this)
-        val jsonObjectRequest = JsonObjectRequest(
-            Request.Method.GET, url, null,
-            { response ->
-                Log.d("TAG", "Success!")
-            },
-            { error ->
-                Log.d("TAG", "Something went wrong")
-                error.printStackTrace()
-            },
-        )
-        Log.d("TAG", url)
+        val resultJson = URL(url).readText()
+        val jsonObj = JSONObject(resultJson)
 
-        queue.add(jsonObjectRequest)
+        Log.d("JSON", jsonObj.getJSONObject("main").toString())
+        Log.d("JSON", jsonObj.getJSONObject("temp").toString())
+
+//        val queue = Volley.newRequestQueue(this)
+//        val jsonObjectRequest = JsonObjectRequest(
+//            Request.Method.GET, url, null,
+//            { response ->
+//                Log.d("TAG", "Success!")
+//            },
+//            { error ->
+//                Log.d("TAG", "Something went wrong")
+//                error.printStackTrace()
+//            },
+//        )
+//        Log.d("TAG", url)
+//
+//        queue.add(jsonObjectRequest)
     }
 
 }
