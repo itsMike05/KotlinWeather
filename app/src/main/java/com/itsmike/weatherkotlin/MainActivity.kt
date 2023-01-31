@@ -34,7 +34,6 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun WeatherPage() {
-
     Column(
         modifier = Modifier.fillMaxWidth()
             .padding(
@@ -46,7 +45,6 @@ fun WeatherPage() {
     ) {
         WeatherIcon()
     }
-
 }
 
 

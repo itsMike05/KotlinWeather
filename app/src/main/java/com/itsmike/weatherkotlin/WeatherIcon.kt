@@ -1,7 +1,6 @@
 package com.itsmike.weatherkotlin
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
