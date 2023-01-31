@@ -1,9 +1,10 @@
 package com.itsmike.weatherkotlin
 
-import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.core.RepeatableSpec
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,23 +15,49 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import com.itsmike.weatherkotlin.ui.theme.WeatherKotlinTheme
 
 class MainActivity : ComponentActivity() {
 
     // example API call https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-    // api key ded5328a22d01eda8aae560363fa549f
+
+    val API_KEY = "ded5328a22d01eda8aae560363fa549f"
+    val CITY = "Bydgoszcz"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             WeatherKotlinTheme {
                 Surface(color = MaterialTheme.colors.background) {
+                    CallTheApi()
                     WeatherPage()
-
                 }
             }
         }
+    }
+
+
+    fun CallTheApi (){
+
+        val url = "https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${API_KEY}"
+        val queue = Volley.newRequestQueue(this)
+        val jsonObjectRequest = JsonObjectRequest(
+            Request.Method.GET, url, null,
+            { response ->
+                Log.d("TAG", response.toString())
+            },
+            { error ->
+                error.printStackTrace()
+            },
+        )
+        Log.d("TAG", url)
+
+        queue.add(jsonObjectRequest)
     }
 
 
