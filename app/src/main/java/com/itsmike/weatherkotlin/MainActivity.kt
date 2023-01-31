@@ -42,16 +42,17 @@ class MainActivity : ComponentActivity() {
     }
 
 
-    fun CallTheApi (){
+    fun CallTheApi(){
 
         val url = "https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${API_KEY}"
         val queue = Volley.newRequestQueue(this)
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.GET, url, null,
             { response ->
-                Log.d("TAG", response.toString())
+                Log.d("TAG", "Success!")
             },
             { error ->
+                Log.d("TAG", "Something went wrong")
                 error.printStackTrace()
             },
         )
@@ -59,7 +60,6 @@ class MainActivity : ComponentActivity() {
 
         queue.add(jsonObjectRequest)
     }
-
 
 }
 //
