@@ -1,5 +1,6 @@
 package com.itsmike.weatherkotlin
 
+import android.os.AsyncTask
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,16 +17,23 @@ import androidx.compose.ui.unit.dp
 import com.itsmike.weatherkotlin.ui.theme.WeatherKotlinTheme
 
 class MainActivity : ComponentActivity() {
+
+    // example API call https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+    // api key ded5328a22d01eda8aae560363fa549f
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             WeatherKotlinTheme {
                 Surface(color = MaterialTheme.colors.background) {
                     WeatherPage()
+
                 }
             }
         }
     }
+
+
 }
 //
 @Composable
